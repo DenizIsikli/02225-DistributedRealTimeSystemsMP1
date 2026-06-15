@@ -1,0 +1,35 @@
+This document describes the Mini-project 1 requirements for the 02225 Distributed Real-Time
+Systems (DRTS) course. The objective is to analyze and compare the schedulability and response
+times of periodic task sets (running on a single core) using different real-time scheduling algorithms.
+1 Project Requirements
+The students are required to develop their own software to perform the project activities. Any pro-
+gramming language and libraries may be used for the implementation. Guidance on the use of Gen-
+erative AI is provided under “Content/Course information”.
+The project requirements are defined at a high level:
+• Determine the worst-case response times (WCRTs) of a set of periodic real-time tasks. The
+analysis must consider:
+– Deadline Monotonic (DM) scheduling.
+– Earliest Deadline First (EDF) scheduling.
+– Note: we consider the case when deadlines are smaller or equal to the periods.
+• Compare Deadline Monotonic (or Rate Monotonic) with EDF.
+• Compare the calculated WCRTs with response times observed during simulations.
+The students have the freedom to decide the comparison methodology between RM/DM and EDF,
+and the approach for comparing simulation results with worst-case behavior.
+2 Resources
+Comparison and Methodology
+• The lecture slides and course reading list provide the necessary theoretical background and
+comparison strategies.
+• “Content/Mini-project-1” contains suggestions for test cases and a test case generation tool.
+• The section “What is a good project that will get a top grade?” under “Content/Course informa-
+tion” on the course website discusses project evaluation criteria.
+Theoretical References
+The following sections from the Buttazzo course textbook [1] are relevant:
+Deadline Monotonic (DM)
+• Section 4.5: Deadline Monotonic.
+• Section 4.5.2: Response Time Analysis.
+• Figure 4.17: Algorithm for testing the schedulability of a periodic task set Γ with the response
+time analysis.
+Earliest Deadline First (EDF)
+• Section 4.6: EDF with Deadlines Less Than Periods.
+• Section 4.6.1: The Processor Demand Approach (both from [1]).
+• “Rate Monotonic vs. EDF: Judgment Day“ paper [2].
