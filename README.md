@@ -2,7 +2,7 @@
 
 This project implements schedulability analysis and worst-case response time (WCRT) computation for periodic real-time task sets using **Deadline Monotonic (DM)** and **Earliest Deadline First (EDF)** scheduling algorithms.
 
-## 📥 Setup and Installation
+## Setup and Installation
 
 ### 1. Download Task Set Data
 
@@ -10,7 +10,8 @@ Download the task set data from:
 **[DTU Learn - Mini Project 1 Data](https://learn.inside.dtu.dk/d2l/le/lessons/296251/topics/1151672)**
 
 After downloading, **extract and copy the `output` folder to the root directory** of this project:
-```
+
+```text
 mini-project-1-RTDS/
 ├── output/              ← Place the downloaded data here
 │   ├── automotive-utilDist/
@@ -23,6 +24,7 @@ mini-project-1-RTDS/
 ### 2. Install Dependencies
 
 Install required Python packages:
+
 ```powershell
 pip install -r requirements.txt
 ```
@@ -34,9 +36,10 @@ Required packages:
 
 ---
 
-## 🚀 Running the Analysis
+## Running the Analysis
 
 ### Run All Experiments
+
 ```powershell
 python src/main.py
 ```
@@ -44,16 +47,19 @@ python src/main.py
 ### Run Specific Algorithms
 
 **EDF Analysis Only:**
+
 ```powershell
 python src/main.py --algorithm edf
 ```
 
 **DM Analysis Only:**
+
 ```powershell
 python src/main.py --algorithm dm
 ```
 
 **Compare DM vs EDF:**
+
 ```powershell
 python src/main.py --compare
 ```
@@ -61,23 +67,26 @@ python src/main.py --compare
 ### Run on Specific Datasets
 
 **Automotive Dataset (D = T):**
+
 ```powershell
 python src/main.py --data automotive
 ```
 
 **UUniFast Dataset (D < T):**
+
 ```powershell
 python src/main.py --data uunifast
 ```
 
 ### Run Validation Tests
+
 ```powershell
 python src/main.py --test
 ```
 
 ---
 
-## 📊 Results
+## Results
 
 All generated plots are saved in the **`results/`** folder:
 
@@ -90,7 +99,7 @@ All generated plots are saved in the **`results/`** folder:
 
 ---
 
-## 🧠 Algorithm Descriptions
+## Algorithm Descriptions
 
 ### Earliest Deadline First (EDF)
 
@@ -112,7 +121,8 @@ This implementation uses the **Processor Demand Approach**:
 - Critical points are tested within the busy period to find maximum response time
 
 **Formula:**
-```
+
+```text
 h(L) = Σ (⌊(L - D_i) / T_i⌋ + 1) · C_i   for all tasks with D_i ≤ L
 ```
 
@@ -132,7 +142,7 @@ h(L) = Σ (⌊(L - D_i) / T_i⌋ + 1) · C_i   for all tasks with D_i ≤ L
 **Schedulability Test & WCRT:**
 Uses **Response Time Analysis (RTA)** with fixed-point iteration:
 
-```
+```text
 R_i^(0) = C_i
 R_i^(n+1) = C_i + Σ_{j ∈ hp(i)} ⌈R_i^(n) / T_j⌉ · C_j
 ```
@@ -149,7 +159,7 @@ The iteration continues until convergence or until `R_i > D_i` (unschedulable).
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ### Core Files
 
@@ -166,7 +176,7 @@ The iteration continues until convergence or until `R_i > D_i` (unschedulable).
 ### Test Files
 
 - **`tests/test_edf.py`** - Unit tests for EDF analysis
-- **`tests/test_dm.py`** - Unit tests for DM analysis  
+- **`tests/test_dm.py`** - Unit tests for DM analysis
 - **`tests/test_simulator.py`** - Unit tests for the simulator
 
 ### Data Directories
@@ -178,15 +188,17 @@ The iteration continues until convergence or until `R_i > D_i` (unschedulable).
 
 ---
 
-## 📖 Dataset Information
+## Dataset Information
 
 ### Automotive Dataset (D = T)
+
 - Deadlines equal to periods (`D_i = T_i`)
 - Periods follow automotive application patterns
 - 25 tasks per task set
 - Utilization levels from 10% to 100%
 
 ### UUniFast Dataset (D < T)
+
 - Constrained deadlines (`D_i < T_i`)
 - Periods uniformly distributed
 - Task utilization generated using UUniFast algorithm
@@ -195,7 +207,7 @@ The iteration continues until convergence or until `R_i > D_i` (unschedulable).
 
 ---
 
-## 📚 References
+## References
 
 This project is based on course **02225 Distributed Real-Time Systems** at DTU.
 
@@ -207,7 +219,7 @@ This project is based on course **02225 Distributed Real-Time Systems** at DTU.
 
 ---
 
-## 🔧 Task Model
+## Task Model
 
 Each task `τ_i` is characterized by:
 - **`C`** - Worst-Case Execution Time (WCET)
@@ -223,7 +235,6 @@ Constraints:
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 Created as part of the Mini-Project 1 for **02225 Distributed Real-Time Systems** course at DTU.
-
